@@ -16,10 +16,10 @@ pipeline{
 
             }
         }
-stage("sonarqube "){
+stage('sonar'){
             steps{
                 withSonarQubeEnv('prabasonar') {
-                    sh "mvn clean package sonar:sonar"
+                    sh 'mvn clean package sonar:sonar'
                 }
             }
         }
