@@ -16,17 +16,15 @@ pipeline{
 
             }
         }
-       
-
-        stage("jfrog"){
+               stage("jfrog"){
             steps{
                 rtUpload(
-                    serverId: 'jfrog',
+                    serverId: 'project',
                     spec: '''{
                         "files": [
                             {
                                 "pattern": "**/**/*.*ar",
-                                "target": "project/"
+                                "target": "Project/"
                             }
                         ]
                     }'''
