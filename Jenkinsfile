@@ -16,7 +16,14 @@ pipeline{
 
             }
         }
-               stage("jfrog"){
+stage("sonarqube "){
+            steps{
+                withSonarQubeEnv('prabasonar') {
+                    sh "mvn clean package sonar:sonar"
+                }
+            }
+        }
+	    stage("jfrog"){
             steps{
                 rtUpload(
                     serverId: 'prabajfrog',
