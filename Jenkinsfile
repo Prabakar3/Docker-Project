@@ -14,14 +14,7 @@ pipeline{
                 sh 'mvn clean install -D skipTests=true'
             }
         }
-	    stage('sonar'){
-            steps{
-                withSonarQubeEnv('prabasonar') {
-                    sh 'mvn clean sonar:sonar'
-                }
-            }
-        }
-        stage("jfrog"){
+	          stage("jfrog"){
             steps{
                 rtUpload(
                     serverId: 'prabajfrog',
@@ -57,3 +50,10 @@ pipeline{
         } 
     } 
 }
+  stage('sonar'){
+            steps{
+                withSonarQubeEnv('prabasonar') {
+                    sh 'mvn clean sonar:sonar'
+                }
+            }
+        }
