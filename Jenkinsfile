@@ -14,7 +14,7 @@ pipeline{
                 sh 'mvn clean install -D skipTests=true'
             }
         }
-       	    stage("jfrog"){
+        stage("jfrog"){
             steps{
                 rtUpload(
                     serverId: 'prabajfrog',
