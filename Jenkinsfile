@@ -40,3 +40,25 @@ stage('sonar'){
         }
 	}
 	}
+stage('dockerbuild'){
+	    steps{
+  	            dir("backend"){
+        	       sh 'docker build -t prabakars/backend:latest .'
+                	}
+		    }
+	   steps{
+                dir("frontend"){
+                  sh 'docker build -t prabakars/frontend:latest .'
+			        }
+            }
+    }
+        
+        stage('docker push'){
+            steps{
+                withCredentials([usernamePassword(credentialsId: 'docker', passwordVariable: 'pwd', usernameVariable: 'user')]) {
+                    sh 'docker login -u prabakars -p ${pwd}'
+                    sh 'docker push prabakars/backend:latest'
+                    sh 'docker push prabakars/frontend:latest'
+                }
+            }
+          }
