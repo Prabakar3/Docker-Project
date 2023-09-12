@@ -32,10 +32,10 @@ pipeline{
 	   stage('dockerbuild'){
 	    steps{
   	        dir("backend"){
-        	    sh 'docker build -t prabakars/backend:latest .'
+        	    sh 'sudo docker build -t prabakars/backend:latest .'
                 }
 		dir("frontend"){
-                  sh 'docker build -t prabakars/frontend:latest .'
+                  sh 'sudo docker build -t prabakars/frontend:latest .'
 		}
             }
         }
