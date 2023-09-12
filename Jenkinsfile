@@ -52,10 +52,9 @@ stage('dockerbuild'){
 			        }
             }
     }
-        
-        stage('docker push'){
+                stage('docker push'){
             steps{
-                withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'Praba@1234', usernameVariable: 'user')]) {
+                withCredentials([usernamePassword(credentialsId: 'docker', passwordVariable: 'pwd', usernameVariable: 'user')]) {
                     sh 'docker login -u prabakars -p Praba@1234'
                     sh 'docker push prabakars/backend:latest'
                     sh 'docker push prabakars/frontend:latest'
