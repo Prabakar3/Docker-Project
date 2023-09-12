@@ -23,8 +23,7 @@ pipeline{
         }
     }
 }
-
-	 stage("jfrog"){
+ stage("jfrog"){
             steps{
                 rtUpload(
                     serverId: 'prabajfrog',
