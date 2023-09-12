@@ -50,7 +50,7 @@ pipeline{
         } 
     } 
 }
-  stage('sonar'){
+  stage('sonarqube build'){
             steps{
                 withSonarQubeEnv('prabasonar') {
                     sh 'mvn clean sonar:sonar'
