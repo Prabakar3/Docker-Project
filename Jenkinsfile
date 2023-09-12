@@ -35,11 +35,9 @@ pipeline{
         	       sh 'docker build -t prabakars/backend:latest .'
                 	}
 		    }
-	        steps{
                 dir("frontend"){
                   sh 'docker build -t prabakars/frontend:latest .'
 			    }
-            }
         }
         stage('docker push'){
             steps{
