@@ -15,14 +15,12 @@ pipeline{
             }
         }
 	stage("sonarqube build"){
-    steps{
-        withCredentials([string(credentialsId: 'squ_7f086ea2b5402c1ce7e3bb824eadcd373c7e5ffc', variable: 'TOKEN')]) {
-            withSonarQubeEnv('prabasonar') {
-                sh "mvn clean package sonar:sonar -Dsonar.login=$TOKEN"
+            steps{
+                withSonarQubeEnv('prabasonar') {
+                    sh "mvn clean package sonar:sonar"
+                }
             }
         }
-    }
-}
  stage("jfrog"){
             steps{
                 rtUpload(
