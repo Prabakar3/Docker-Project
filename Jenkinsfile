@@ -14,6 +14,13 @@ pipeline{
                 sh 'mvn clean install -D skipTests=true'
             }
         }
+     stage("sonarqube build"){
+          steps{
+               withSonarQubeEnv('praba') {
+              sh "mvn clean package sonar:sonar"
+                }
+            }
+        }
    stage("jfrog"){
             steps{
                 rtUpload(
