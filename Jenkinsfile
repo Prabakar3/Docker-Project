@@ -67,12 +67,13 @@ pipeline{
 		   }
 	   }
    }
-	    post {
-		    always {
+  stage('clean') {
+	    post{
+		    always{
 			    cleanWs()
 		    }
 	    }
     }
  } 
-
+}
 
