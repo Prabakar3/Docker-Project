@@ -63,7 +63,7 @@ pipeline{
 			   	sh 'kubectl apply -f backend.yaml'
 			   	sh 'kubectl apply -f frontend.yaml'
 			   	sh 'kubectl apply -f backsvc.yaml'
-			   	sh 'kubectl apply -f frontsvc.yaml
+			   	sh 'kubectl apply -f frontsvc.yaml'
 		   }
 	   }
    }
