@@ -59,11 +59,11 @@ pipeline{
 	   steps{
 		   withkubeconfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'azurepraba', namespace: '', restrictkubeconfigAccess: false, 
 				  serverUrl: '',){
-			   	sh 'kubectl apply -f ns.yml'
-			   	sh 'kubectl apply -f backend.yml'
-			   	sh 'kubectl apply -f frontend.yml'
-			   	sh 'kubectl apply -f backsvc.yml'
-			   	sh 'kubectl apply -f frontsvc.yml
+			   	sh 'kubectl apply -f ns.yaml'
+			   	sh 'kubectl apply -f backend.yaml'
+			   	sh 'kubectl apply -f frontend.yaml'
+			   	sh 'kubectl apply -f backsvc.yaml'
+			   	sh 'kubectl apply -f frontsvc.yaml
 		   }
 	   }
    }
