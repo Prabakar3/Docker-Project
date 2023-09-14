@@ -57,7 +57,7 @@ pipeline{
         } 
    stage('k8s-deploy'){
 	   steps{
-		   withkubeconfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'azurepraba' namespace: '', restrictkubeconfigAccess: false, 
+		   withkubeconfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'azurepraba', namespace: '', restrictkubeconfigAccess: false, 
 				  serverUrl: '',){
 			   	sh 'kubectl apply -f ns.yml'
 			   	sh 'kubectl apply -f backend.yml'
