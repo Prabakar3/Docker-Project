@@ -55,6 +55,23 @@ pipeline{
                 }
             }
         } 
+   stage('k8s-deploy') {
+	   steps {
+		   withkubeconfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'azurepraba' namespace: '', restrictkubeconfigAccess: false, serverUrl: '',) {
+			   	sh 'kubectl apply -f ns.yml'
+			   	sh 'kubectl apply -f deploybackend.yml'
+			   	sh 'kubectl apply -f deployfrontend.yml'
+			   	sh 'kubectl apply -f svcbe.yml'
+			   	sh 'kubectl apply -f svcfe.yml
+		   }
+	   }
+   }
+	    post {
+		    always {
+			    cleanWs()
+		    }
+	    }
+    }
     } 
 }
 
