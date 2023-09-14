@@ -60,10 +60,10 @@ pipeline{
 		   withkubeconfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'azurepraba' namespace: '', restrictkubeconfigAccess: false, 
 				  serverUrl: '',){
 			   	sh 'kubectl apply -f ns.yml'
-			   	sh 'kubectl apply -f deploybackend.yml'
-			   	sh 'kubectl apply -f deployfrontend.yml'
-			   	sh 'kubectl apply -f svcbe.yml'
-			   	sh 'kubectl apply -f svcfe.yml
+			   	sh 'kubectl apply -f backend.yml'
+			   	sh 'kubectl apply -f frontend.yml'
+			   	sh 'kubectl apply -f backsvc.yml'
+			   	sh 'kubectl apply -f frontsvc.yml
 		   }
 	   }
    }
